@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:macCollectionView="clr-namespace:MacCollectionView"
+             x:Class="MacCollectionView.MainPage">
+    <Grid WidthRequest="300" x:DataType="macCollectionView:MainPageViewModel" HorizontalOptions="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button WidthRequest="200" HeightRequest="100" Text="{Binding ButtonText}" 
+                BackgroundColor="Green" 
+                TextColor="White" 
+                Command="{Binding AnimateCommand}"/>
+        <CollectionView Grid.Row="1" 
+                        ItemsSource="{Binding TestObjects}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <macCollectionView:TestObjectView/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
